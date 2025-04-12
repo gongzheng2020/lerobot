@@ -122,7 +122,7 @@ class TDMPCPolicy(PreTrainedPolicy):
 
         # When the action queue is depleted, populate it again by querying the policy.
         if len(self._queues["action"]) == 0:
-            batch = {key: torch.stack(list(self._queues[key]), dim=1) for key in batch if key in self._queues}
+            batch = {key: torch.stack(list(self._queues[key]), dim=1) for key in batch}
 
             # Remove the time dimensions as it is not handled yet.
             for key in batch:
